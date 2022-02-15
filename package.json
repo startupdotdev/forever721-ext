@@ -1,0 +1,12 @@
+{
+  "name": "forever721-ext",
+  "version": "1.0.0",
+  "description": "Browser extension for Forever721",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "@startupdotdev",
+  "license": "ISC"
+}
