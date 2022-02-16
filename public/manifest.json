@@ -1,10 +1,10 @@
 {
   "manifest_version": 2,
-  "name": "My Extension",
+  "name": "Forever721",
   "version": "1.0.0",
   "permissions": ["storage"],
   "background": {
-    "scripts": ["build/background.js"],
+    "scripts": ["background.js"],
     "persistent": false
   },
   "browser_action": {
@@ -13,7 +13,7 @@
   "content_scripts": [
     {
       "matches": ["https://*/*"],
-      "js": ["build/injection.js"]
+      "js": ["injection.js"]
     }
   ]
 }
