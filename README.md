@@ -40,3 +40,18 @@ You can run the newly built app with `npm run start`. This uses [sirv](https://g
 ## Contributing
 
 TODO
+
+## Roadmap
+
+- [x] display an error if we are not on opensea
+- [] get url of contract from opensea
+- [] get tokenid from opensea
+- [] get signer/provider from metamask in the extension
+- [] get tokenURI via ethers
+- [] run grade via forever721
+- [] bobs your uncle
+- [] jazz up the UI
+
+## References:
+
+- https://dev.to/khangnd/build-a-browser-extension-with-svelte-3135

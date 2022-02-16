@@ -4,7 +4,6 @@
 
   // export let var; // check main.ts if we need to pass in anything
   let onOpenSea: boolean = false;
-  let boop: string;
 
   async function getCurrentTab(): Promise<browser.Tabs.Tab> {
     let queryOptions = { active: true, currentWindow: true };
@@ -13,15 +12,12 @@
   }
 
   onMount(async () => {
-    // get current URL
     let tab = await getCurrentTab();
-    console.log(tab);
-    boop = tab.url || "served";
+    onOpenSea = tab?.url.indexOf("https://opensea.io/") === 0;
   });
 </script>
 
 <main>
-  boop: {boop}
   {#if onOpenSea}
     <div>Show image</div>
     <div>Link to contract</div>
