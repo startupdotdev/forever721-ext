@@ -1,8 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import browser from "webextension-polyfill";
-
-  const OPENSEA_URL_PATTERN = /https:\/\/opensea.io\/assets\/(\w*)\/(\w*)/;
+  import { isOpenSeaUrl, getDetailsFromOpenSeaUrl } from "$lib/utils/open-sea";
 
   // export let var; // check main.ts if we need to pass in anything
   let onOpenSea: boolean = false;
@@ -31,8 +30,13 @@
     url = params.url;
     title = params.title;
 
-    [, contractAddress, tokenId] = params?.url.match(OPENSEA_URL_PATTERN);
-    onOpenSea = url.indexOf("https://opensea.io/") === 0;
+    onOpenSea = isOpenSeaUrl(url);
+
+    if (!onOpenSea) return;
+
+    let details = getDetailsFromOpenSeaUrl(url);
+    contractAddress = details.contractAddress;
+    tokenId = details.tokenId;
   });
 </script>
 
