@@ -3,6 +3,9 @@
   import browser from "webextension-polyfill";
   import { isOpenSeaUrl, getDetailsFromOpenSeaUrl } from "$lib/utils/open-sea";
 
+  import { createMetaMaskProvider } from "$lib/utils/metamask";
+  // import createMetaMaskProvider from "metamask-extension-provider";
+
   // export let var; // check main.ts if we need to pass in anything
   let onOpenSea: boolean = false;
 
@@ -38,9 +41,15 @@
     contractAddress = details.contractAddress;
     tokenId = details.tokenId;
   });
+
+  function connectMetamask() {
+    const provider = createMetaMaskProvider();
+    console.log(provider);
+  }
 </script>
 
 <main>
+  <button on:click={() => connectMetamask()}> Connect metamask </button>
   {#if onOpenSea}
     <div>
       <div>Show image</div>

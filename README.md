@@ -55,3 +55,5 @@ TODO
 ## References:
 
 - https://dev.to/khangnd/build-a-browser-extension-with-svelte-3135
+- https://60devs.com/hot-reloading-for-chrome-extensions.html
+- https://developer.chrome.com/docs/extensions/mv2/content_scripts/

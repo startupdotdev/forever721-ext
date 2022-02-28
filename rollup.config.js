@@ -6,6 +6,9 @@ import { terser } from "rollup-plugin-terser";
 import sveltePreprocess from "svelte-preprocess";
 import typescript from "@rollup/plugin-typescript";
 import css from "rollup-plugin-css-only";
+import json from "@rollup/plugin-json";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
+import nodePolyfills from "rollup-plugin-polyfill-node";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -44,6 +47,9 @@ export default [
       file: "dist/bundle.js",
     },
     plugins: [
+      nodePolyfills(),
+      nodeResolve({ preferBuiltins: false }),
+      commonjs(),
       svelte({
         preprocess: sveltePreprocess({ sourceMap: !production }),
         compilerOptions: {
@@ -64,7 +70,7 @@ export default [
         browser: true,
         dedupe: ["svelte"],
       }),
-      commonjs(),
+      json(),
       typescript({
         sourceMap: !production,
         inlineSources: !production,

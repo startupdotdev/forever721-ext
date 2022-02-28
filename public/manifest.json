@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Forever721",
   "version": "1.0.0",
-  "permissions": ["storage", "activeTab"],
+  "permissions": ["storage", "activeTab", "webNavigation"],
   "background": {
     "scripts": ["background.js", "hot-reload.js"],
     "persistent": false
@@ -13,6 +13,7 @@
   "content_scripts": [
     {
       "matches": ["https://*/*"],
+      "run_at": "document_idle",
       "js": ["injection.js"]
     }
   ]
